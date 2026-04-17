@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Ammu 🎂</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 48px;
+      text-shadow: 0 0 10px #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 550px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      border: none;
+      background: #38bdf8;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    #hiddenMessage {
+      margin-top: 30px;
+      font-size: 20px;
+      min-height: 60px;
+      white-space: pre-line;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: 0;
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday Ammu 🎉</h1>
+
+  <p>
+    To my best friend, brother, and my bbg 😁
+  </p>
+
+  <button onclick="startSurprise()">click me</button>
+
+  <p id="hiddenMessage"></p>
+
+  <script>
+    function startSurprise() {
+      let message = `Ammuuseeee........
+this is a small gift from me...
+
+this is the only gift I can give u...
+
+when we first met, I never thought we would become this close friends.
+
+you were there for me every time...
+whenever I'm sad, I always want to talk to u.
+
+you brighten my day in every way...
+
+and I really hope this friendship never ends 💖
+
+with lots of love,
+from your devuss`;
+
+      typeMessage(message);
+      confetti();
+    }
+
+    function typeMessage(text) {
+      let i = 0;
+      let speed = 35;
+      let msgBox = document.getElementById("hiddenMessage");
+      msgBox.innerHTML = "";
+
+      function typing() {
+        if (i < text.length) {
+          msgBox.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        }
+      }
+
+      typing();
+    }
+
+    function confetti() {
+      for (let i = 0; i < 80; i++) {
+        let div = document.createElement("div");
+        div.classList.add("confetti");
+        div.style.left = Math.random() * 100 + "vw";
+        div.style.backgroundColor = ["#38bdf8", "#f472b6", "#facc15", "#4ade80"][Math.floor(Math.random()*4)];
+        div.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(div);
+
+        setTimeout(() => div.remove(), 3000);
+      }
+    }
+  </script>
+
+</body>
+</html>
